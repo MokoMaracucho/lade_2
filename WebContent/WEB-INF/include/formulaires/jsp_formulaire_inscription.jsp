@@ -1,8 +1,8 @@
 <form method="post" action="Inscription" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
-	<h1 class="text-light">INSCRIPTION</h1>
+	<h1 class="font-weight-bold text-light">INSCRIPTION</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' } text-light">${ traitementFormulaireInscription.resultatInscription }</p>
+		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' } font-weight-bold text-danger">${ traitementFormulaireInscription.resultatInscription }</p>
 	</div>
 
   	<div class="form-group">
@@ -12,8 +12,8 @@
   	</div>
   	
   	<div class="form-group">
-  		<span class="text-light">${ traitementFormulaireInscription.erreursInscription['nomUtilisateur'] }</span>
     	<label for="nomUtilisateur" class="form-label-color">Nom</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireInscription.erreursInscription['nomUtilisateur'] }</div>
     	<input id="nomUtilisateur" name="nomUtilisateur" type="text" class="form-control" aria-describedby="nomUtilisateur" value="<c:out value="${ nouvelUtilisateur.nomUtilisateur }"/>">
   	</div>
   	
