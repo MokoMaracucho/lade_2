@@ -1,2 +1,3 @@
 lade/servlets/SRV_Accueil.class
 lade/servlets/SRV_Inscription.class
+lade/servlets/SRV_Connection.class

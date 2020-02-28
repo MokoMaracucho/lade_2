@@ -1,7 +1,5 @@
 <form method="post" action="Inscription" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
-	<div class="form-title">
-		INSCRIPTION
-	</div>
+	<h1 class="text-light">INSCRIPTION</h1>
 	
 	<div>
 		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' }">${ traitementFormulaireInscription.resultatInscription }</p>
