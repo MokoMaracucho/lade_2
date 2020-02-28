@@ -19,4 +19,8 @@ public class SRV_Connection extends HttpServlet {
 		
 		this.getServletContext().getRequestDispatcher(VUE_CONNECTION).forward(request, response);
 	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+    }
 }

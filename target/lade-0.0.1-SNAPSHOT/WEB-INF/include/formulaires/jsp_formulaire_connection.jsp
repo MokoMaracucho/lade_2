@@ -1,4 +1,4 @@
-<form class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
+<form method="post" action="Connection" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
 	<h1 class="text-light">CONNECTION</h1>
 	
 	<div>

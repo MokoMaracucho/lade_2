@@ -28,3 +28,7 @@ html {
 .form-label-color {
 	color: lightgrey;
 }
+
+.p-form-warning {
+	margin-bottom: 5px;
+}

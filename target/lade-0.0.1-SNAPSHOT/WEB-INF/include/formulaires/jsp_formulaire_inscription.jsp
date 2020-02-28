@@ -2,7 +2,7 @@
 	<h1 class="text-light">INSCRIPTION</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' }">${ traitementFormulaireInscription.resultatInscription }</p>
+		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' } text-light">${ traitementFormulaireInscription.resultatInscription }</p>
 	</div>
 
 	<div class="form-row">
