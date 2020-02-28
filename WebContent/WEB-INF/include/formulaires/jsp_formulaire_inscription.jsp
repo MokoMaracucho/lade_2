@@ -35,8 +35,8 @@
   	</div>
   	
   	<div class="form-group">
-  		<span class="text-light">${ traitementFormulaireInscription.erreursInscription['numeroMembreUtilisateur'] }</span>
     	<label for="numeroMembreUtilisateur" class="form-label-color">Numéro de membre</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireInscription.erreursInscription['numeroMembreUtilisateur'] }</div>
     	<input id="numeroMembreUtilisateur" name="numeroMembreUtilisateur" type="text" class="form-control" aria-describedby="numeroMembreUtilisateur" value="<c:out value="${ nouvelUtilisateur.numeroMembreUtilisateur }"/>">
   	</div>
   
