@@ -18,14 +18,14 @@
   	</div>
   	
   	<div class="form-group">
-  		<span class="text-light">${ traitementFormulaireInscription.erreursInscription['emailUtilisateur'] }</span>
     	<label for="emailUtilisateur" class="form-label-color">Adresse email</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireInscription.erreursInscription['emailUtilisateur'] }</div>
     	<input id="emailUtilisateur" name="emailUtilisateur" type="email" class="form-control" aria-describedby="emailUtilisateur" value="<c:out value="${ nouvelUtilisateur.emailUtilisateur }"/>">
   	</div>
   
   	<div class="form-group">
-  		<span class="text-light">${ traitementFormulaireInscription.erreursInscription['motDePasseUtilisateur'] }</span>
     	<label for="motDePasseUtilisateur" class="form-label-color">Mot-de-passe</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireInscription.erreursInscription['motDePasseUtilisateur'] }</div>
     	<input id="motDePasseUtilisateur" name="motDePasseUtilisateur" type="password" class="form-control" aria-describedby="motDePasseUtilisateur">
   	</div>
   
