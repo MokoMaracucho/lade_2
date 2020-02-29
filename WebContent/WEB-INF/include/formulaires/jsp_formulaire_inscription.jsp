@@ -31,6 +31,7 @@
   
   	<div class="form-group">
     	<label for="confirmationMotDePasseUtilisateur" class="form-label-color">Confirmation du mot-de-passe</label>
+		<div class="small text-warning p-form-warning"></div>
     	<input id="confirmationMotDePasseUtilisateur" name="confirmationMotDePasseUtilisateur" type="password" class="form-control" aria-describedby="confirmationMotDePasseUtilisateur">
   	</div>
   	

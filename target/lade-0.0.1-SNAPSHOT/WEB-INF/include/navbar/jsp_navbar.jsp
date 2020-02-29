@@ -9,13 +9,21 @@
 	        	<a class="nav-link" href="/lade/Accueil">Accueil <span class="sr-only">(current)</span></a>
 	      	</li>
 	      	
-    		<li class="nav-item">
-        		<a class="nav-link" href="/lade/Inscription">Inscription <span class="sr-only">(current)</span></a>
-      		</li>
+	      	<c:if test="${empty sessionScope.sessionUtilisateur}">
+	    		<li class="nav-item">
+	        		<a class="nav-link" href="/lade/Inscription">Inscription <span class="sr-only">(current)</span></a>
+	      		</li>
       		
-    		<li class="nav-item">
-        		<a class="nav-link" href="/lade/Connection">Connection <span class="sr-only">(current)</span></a>
-      		</li>
+	    		<li class="nav-item">
+	        		<a class="nav-link" href="/lade/Connection">Connection <span class="sr-only">(current)</span></a>
+	      		</li>
+	      	</c:if>
+	      	
+	      	<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	    		<li class="nav-item">
+	        		<a class="nav-link" href="/lade/Inscription">Deconnection <span class="sr-only">(current)</span></a>
+	      		</li>
+	      	</c:if>
 	      
 	      	<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajouts </a>
@@ -60,5 +68,10 @@
       		<input class="form-control mr-sm-2" type="search" aria-label="Search">
       		<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherche</button>
     	</form>
+    	
   	</div>
 </nav>
+
+<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	<div class="succes small p-vous-etes-connecte text-secondary">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.emailUtilisateur}</div>
+</c:if>

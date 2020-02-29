@@ -1,6 +1,6 @@
+lade/servlets/SRV_Connection.class
+lade/formulaires/FORM_Exception.class
 lade/servlets/SRV_Inscription.class
 lade/servlets/SRV_Accueil.class
 lade/formulaires/FORM_TraitementFormulaireInscription.class
 lade/beans/BN_Utilisateur.class
-lade/servlets/SRV_Connection.class
-lade/formulaires/FORM_Exception.class

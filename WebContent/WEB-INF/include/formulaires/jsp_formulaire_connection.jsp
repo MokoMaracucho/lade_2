@@ -1,5 +1,5 @@
 <form method="post" action="Connection" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
-	<h1 class="text-light">CONNECTION</h1>
+	<h1 class="font-weight-bold text-light">CONNECTION</h1>
 	
 	<div>
 		<p class="${ empty traitementFormulaireConnection.erreursConnection ? 'succesConnection' : 'erreurConnection' } font-weight-bold text-danger">${ traitementFormulaireConnection.resultatConnection }</p>
@@ -16,5 +16,5 @@
     	<input id="motDePasseUtilisateur" name="motDePasseUtilisateur" type="password" class="form-control" id="motDePasseUtilisateur">
   	</div>
   
-  	<button type="submit" class="btn btn-primary">Se connecter</button>
+  	<button type="submit" class="btn btn-success">Se connecter</button>
 </form>
