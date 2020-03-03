@@ -2,8 +2,9 @@
 	<h1 class="font-weight-bold text-light">CONNECTION</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireConnection.erreursConnection ? 'succesConnection' : 'erreurConnection' } font-weight-bold text-danger">${ traitementFormulaireConnection.resultatConnection }</p>
+		<p class="${ empty traitementFormulaireConnection.erreursConnection ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireConnection.resultatConnection }</p>
 	</div>
+	
   	<div class="form-group">
     	<label for="emailUtilisateur" class="form-label-color">Adresse email</label>
   		<div class="small text-warning p-form-warning">${ traitementFormulaireConnection.erreursConnection['emailUtilisateur'] }</div>

@@ -21,7 +21,7 @@
 	      	
 	      	<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	    		<li class="nav-item">
-	        		<a class="nav-link" href="/lade/Inscription">Deconnection <span class="sr-only">(current)</span></a>
+	        		<a class="nav-link" href="/lade/Connection">Deconnection <span class="sr-only">(current)</span></a>
 	      		</li>
 	      	</c:if>
 	      
@@ -68,7 +68,6 @@
       		<input class="form-control mr-sm-2" type="search" aria-label="Search">
       		<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Recherche</button>
     	</form>
-    	
   	</div>
 </nav>
 

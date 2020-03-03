@@ -2,7 +2,7 @@
 	<h1 class="font-weight-bold text-light">INSCRIPTION</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesInscription' : 'erreurInscription' } font-weight-bold text-danger">${ traitementFormulaireInscription.resultatInscription }</p>
+		<p class="${ empty traitementFormulaireInscription.erreursInscription ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireInscription.resultatInscription }</p>
 	</div>
 
   	<div class="form-group">

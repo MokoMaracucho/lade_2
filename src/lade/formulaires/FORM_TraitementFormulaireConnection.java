@@ -41,8 +41,8 @@ public class FORM_TraitementFormulaireConnection {
 		
 		BN_Utilisateur utilisateur = new BN_Utilisateur();
 		
-		traitementEmail(emailUtilisateur);
-		traitementMotDePasse(motDePasseUtilisateur);
+		traitementEmail(emailUtilisateur, utilisateur);
+		traitementMotDePasse(motDePasseUtilisateur, utilisateur);
 		
 		if(erreursConnection.isEmpty()) {
 
@@ -56,7 +56,7 @@ public class FORM_TraitementFormulaireConnection {
 		return utilisateur;
 	}
 	
-	private void traitementEmail(String emailUtilisateur){
+	private void traitementEmail(String emailUtilisateur, BN_Utilisateur utilisateur){
 		
 		try {
 			
@@ -66,6 +66,7 @@ public class FORM_TraitementFormulaireConnection {
 			
 			setErreursConnection(CHAMP_EMAIL_UTILISATEUR, e.getMessage());
 		}
+		utilisateur.setEmailUtilisateur(emailUtilisateur);
 	}
 	
 	private void validationEmail(String emailUtilisateur) throws FORM_Exception {
@@ -82,7 +83,7 @@ public class FORM_TraitementFormulaireConnection {
         }
     }
 	
-	private void traitementMotDePasse(String motDePasseUtilisateur){
+	private void traitementMotDePasse(String motDePasseUtilisateur, BN_Utilisateur utilisateur){
 		
 		try {
 			
@@ -92,6 +93,7 @@ public class FORM_TraitementFormulaireConnection {
 			
 			setErreursConnection(CHAMP_MOT_DE_PASSE_UTILISATEUR, e.getMessage());
 		}
+		utilisateur.setMotDePasseUtilisateur(motDePasseUtilisateur);
 	}
 
 	private void validationMotDePasse(String motDePasseUtilisateur) throws FORM_Exception {
