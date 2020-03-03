@@ -21,7 +21,7 @@
 	      	
 	      	<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	    		<li class="nav-item">
-	        		<a class="nav-link" href="/lade/Connection">Deconnection <span class="sr-only">(current)</span></a>
+	        		<a class="nav-link" href="/lade/Deconnection">Deconnection <span class="sr-only">(current)</span></a>
 	      		</li>
 	      	</c:if>
 	      

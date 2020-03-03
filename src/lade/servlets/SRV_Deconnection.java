@@ -17,11 +17,11 @@ public class SRV_Deconnection extends HttpServlet {
 	public static final String URL_CONNECTION = "/lade/Connection";
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        HttpSession session = request.getSession();
-        
-        session.invalidate();
-
-        response.sendRedirect(URL_CONNECTION);
+	
+	    HttpSession session = request.getSession();
+	    
+	    session.invalidate();
+	
+	    response.sendRedirect(URL_CONNECTION);
     }
 }
