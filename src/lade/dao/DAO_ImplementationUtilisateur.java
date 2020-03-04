@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import lade.beans.BN_Utilisateur;
 import static lade.dao.DAO_Utilitaire.*;
 

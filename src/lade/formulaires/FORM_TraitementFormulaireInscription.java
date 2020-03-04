@@ -30,11 +30,6 @@ public class FORM_TraitementFormulaireInscription {
 	
 	private DAO_Utilisateur daoUtilisateur;
 	
-	public FORM_TraitementFormulaireInscription(DAO_Utilisateur daoUtilisateur) {
-		
-		this.daoUtilisateur = daoUtilisateur;
-	}
-	
 	public String getResultatInscription() {
 		return resultatInscription;
 	}
@@ -46,15 +41,20 @@ public class FORM_TraitementFormulaireInscription {
 	public Map<String, String> getErreursInscription() {
 		return erreursInscription;
 	}
+	
+	public FORM_TraitementFormulaireInscription(DAO_Utilisateur daoUtilisateur) {
+		
+		this.daoUtilisateur = daoUtilisateur;
+	}
 
 	public BN_Utilisateur traitementFormulaireInscription(HttpServletRequest request) {
 		
-		String prenomUtilisateur 						= getValeurChampTexteFormulaire(request, CHAMP_PRENOM_UTILISATEUR);
-		String nomUtilisateur 							= getValeurChampTexteFormulaire(request, CHAMP_NOM_UTILISATEUR);
-		String emailUtilisateur 						= getValeurChampTexteFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
-		String motDePasseUtilisateur 					= getValeurChampTexteFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
-		String confirmationMotDePasseUtilisateur 		= getValeurChampTexteFormulaire(request, CHAMP_CONFIRMATION_MOT_DE_PASSE_UTILISATEUR);
-		String numeroMembreUtilisateur 					= getValeurChampTexteFormulaire(request, CHAMP_NUMERO_MEMBRE_UTILISATEUR);
+		String prenomUtilisateur 						= getValeurChampFormulaire(request, CHAMP_PRENOM_UTILISATEUR);
+		String nomUtilisateur 							= getValeurChampFormulaire(request, CHAMP_NOM_UTILISATEUR);
+		String emailUtilisateur 						= getValeurChampFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
+		String motDePasseUtilisateur 					= getValeurChampFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
+		String confirmationMotDePasseUtilisateur 		= getValeurChampFormulaire(request, CHAMP_CONFIRMATION_MOT_DE_PASSE_UTILISATEUR);
+		String numeroMembreUtilisateur 					= getValeurChampFormulaire(request, CHAMP_NUMERO_MEMBRE_UTILISATEUR);
 	
 		BN_Utilisateur nouvelUtilisateur = new BN_Utilisateur();
 			
@@ -205,35 +205,35 @@ public class FORM_TraitementFormulaireInscription {
 
 	private void validationMotDePasse(String motDePasseUtilisateur, String confirmationMotDePasseUtilisateur) throws FORM_Exception {
 
-		String regex_Minuscule = "[a-z]";
-
-		String regex_Majuscule = "[A-Z]";
-
-		String regex_Chiffre = "[0-9]";
-
-		String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
-
-		Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
-
-		Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
-
-		Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
-
-		Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
-
-		Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasseUtilisateur);
-
-		Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasseUtilisateur);
-
-		Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasseUtilisateur);
-
-		Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasseUtilisateur);
-
 		if (motDePasseUtilisateur != null && motDePasseUtilisateur.trim().length() != 0 && confirmationMotDePasseUtilisateur != null && confirmationMotDePasseUtilisateur.trim().length() != 0 ) {
 
 			if (motDePasseUtilisateur.equals(confirmationMotDePasseUtilisateur)) {
 
 				if (motDePasseUtilisateur.length() >= 8 && motDePasseUtilisateur.length() <= 50) {
+
+					String regex_Minuscule = "[a-z]";
+
+					String regex_Majuscule = "[A-Z]";
+
+					String regex_Chiffre = "[0-9]";
+
+					String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
+
+					Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
+
+					Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
+
+					Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
+
+					Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
+
+					Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasseUtilisateur);
+
+					Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasseUtilisateur);
+
+					Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasseUtilisateur);
+
+					Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasseUtilisateur);
 
 					if (matcher_Minuscule.find()) {
 
@@ -307,17 +307,17 @@ public class FORM_TraitementFormulaireInscription {
 		}
 	}
 	
-	private static String getValeurChampTexteFormulaire(HttpServletRequest request, String nomChampTexteFormulaire) {
+	private static String getValeurChampFormulaire(HttpServletRequest request, String nomChampFormulaire) {
 		
-		String valeurChampTexteFormulaire = request.getParameter(nomChampTexteFormulaire);
+		String valeurChampFormulaire = request.getParameter(nomChampFormulaire);
 		
-		if(valeurChampTexteFormulaire == null || valeurChampTexteFormulaire.trim().length() == 0) {
+		if(valeurChampFormulaire == null || valeurChampFormulaire.trim().length() == 0) {
 			
 			return null;
 		
 		} else {
 			
-			return valeurChampTexteFormulaire;
+			return valeurChampFormulaire;
 		}
 	}
 
