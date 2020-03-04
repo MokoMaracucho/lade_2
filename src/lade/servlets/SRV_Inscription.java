@@ -28,7 +28,6 @@ public class SRV_Inscription extends HttpServlet {
 	
 	public static final String CONFIGURATION_DAO_FACTORY 				= "daoFactory";
 
-	
 	private DAO_Utilisateur daoUtilisateur;
     
     public void init() throws ServletException {

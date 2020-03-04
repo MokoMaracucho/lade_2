@@ -62,6 +62,10 @@
          			<a class="dropdown-item" href="ListeTopos">Liste des topos</a>
        			</div>
       		</li>
+    	
+		    <li class="nav-item">
+		        <a class="nav-link" href="/lade/RechercheAvancee">Recherche avancée <span class="sr-only">(current)</span></a>
+		    </li>
     	</ul>
     	
 	    <form class="form-inline my-2 my-lg-0">

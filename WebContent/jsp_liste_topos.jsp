@@ -28,22 +28,20 @@
 			        		<c:forEach var="topo" items="${ requestScope['listeTopos'] }">
 		        				<div class="col-sm-3 form form-expand-lg form-dark bg-dark form-margin-padding form-border m-1 mt-3">
 		        					<h5 class="font-weight-bold text-light">${ topo.nomTopo }</h5>
+
+			        				<div class="small text-secondary"><strong>Propriétaire : </strong>${ topo.proprietaireTopo.prenomUtilisateur } ${ topo.proprietaireTopo.nomUtilisateur }</div>
 			        				
-			        				<div class="corpsSection">
-				        				<div class="small text-secondary"><strong>Propriétaire : </strong>${ topo.proprietaireTopo.prenomUtilisateur } ${ topo.proprietaireTopo.nomUtilisateur }</div>
-				        				
-				        				<div class="small text-secondary mb-2"><strong>Region : </strong>${ topo.regionTopo }</div>
-				        				
-				        				<div class="small text-secondary mb-2"><strong>Parution : </strong>${ topo.dateParutionTopo }</div>
-				        				
-				        				<div class="small text-secondary mb-2"><strong>Description : </strong>${ topo.descriptionTopo }</div>
-		        				
-		        						<c:if test="${!empty sessionScope.sessionUtilisateur}">
-					        				<c:if test="${ topo.disponibiliteTopo }">
-					        					<a type="button" href="/lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Réserver le topo</a>
-					        				</c:if>
-        								</c:if>
-			        				</div>
+			        				<div class="small text-secondary"><strong>Région : </strong>${ topo.regionTopo }</div>
+			        				
+			        				<div class="small text-secondary"><strong>Parution : </strong>${ topo.dateParutionTopo }</div>
+			        				
+			        				<div class="small text-secondary mb-2"><strong>Description : </strong>${ topo.descriptionTopo }</div>
+	        				
+	        						<c:if test="${!empty sessionScope.sessionUtilisateur}">
+				        				<c:if test="${ topo.disponibiliteTopo }">
+				        					<a type="button" href="/lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Réserver le topo</a>
+				        				</c:if>
+       								</c:if>
 		        				</div>
 			        		</c:forEach>
 			        	</c:otherwise>
