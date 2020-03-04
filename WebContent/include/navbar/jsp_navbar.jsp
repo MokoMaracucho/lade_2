@@ -57,7 +57,7 @@
          
          			<a class="dropdown-item" href="ListeVoies">Liste des voies</a>
          
-         			<a class="dropdown-item" href="#">Liste des longueurs</a>
+         			<a class="dropdown-item" href="ListeLongueurs">Liste des longueurs</a>
          
          			<a class="dropdown-item" href="#">Liste des topos</a>
        			</div>
