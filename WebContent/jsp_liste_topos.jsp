@@ -38,9 +38,11 @@
 				        				
 				        				<div class="small text-secondary mb-2"><strong>Description : </strong>${ topo.descriptionTopo }</div>
 		        				
-				        				<c:if test="${ topo.disponibiliteTopo }">
-				        					<a type="button" href="/oc_lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Réserver le topo</a>
-				        				</c:if>
+		        						<c:if test="${!empty sessionScope.sessionUtilisateur}">
+					        				<c:if test="${ topo.disponibiliteTopo }">
+					        					<a type="button" href="/lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Réserver le topo</a>
+					        				</c:if>
+        								</c:if>
 			        				</div>
 		        				</div>
 			        		</c:forEach>

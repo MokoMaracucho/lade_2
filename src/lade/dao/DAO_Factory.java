@@ -112,11 +112,11 @@ public class DAO_Factory {
 		return new DAO_ImplementationTopo(this);
 	}
 	
-//	public DAO_ReservationTopo getDaoReservationTopo() {
-//		
-//		return new DAO_ImplementationReservationTopo(this);
-//	}
-//	
+	public DAO_ReservationTopo getDaoReservationTopo() {
+		
+		return new DAO_ImplementationReservationTopo(this);
+	}
+	
 //	public DAO_Recherche getDaoRecherche() {
 //		
 //		return new DAO_ImplementationRecherche(this);
