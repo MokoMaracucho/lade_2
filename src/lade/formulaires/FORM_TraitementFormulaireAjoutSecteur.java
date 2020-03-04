@@ -117,7 +117,7 @@ public class FORM_TraitementFormulaireAjoutSecteur {
 
 			if (nomSecteur.length() > 3 && nomSecteur.length() < 30) {
 
-				if (nomSecteur.matches("^[a-zA-Z0-9 ]+$")) {
+				if (nomSecteur.matches("^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '-]+$")) {
 					
 					if (daoSecteur.selectionSecteurParNom(nomSecteur) != null ) {
 	                	

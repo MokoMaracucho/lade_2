@@ -122,7 +122,7 @@ public class FORM_TraitementFormulaireAjoutVoie {
 
 			if(nomVoie.length() > 3 && nomVoie.length() < 30) {
 
-				if(nomVoie.matches("^[a-zA-Z0-9 ]+$")) {
+				if(nomVoie.matches("^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '-]+$")) {
 					
 					if(daoVoie.selectionVoieParNom(nomVoie) != null ) {
 	                	

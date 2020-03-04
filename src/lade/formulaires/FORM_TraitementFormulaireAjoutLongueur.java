@@ -119,7 +119,7 @@ public class FORM_TraitementFormulaireAjoutLongueur {
 
 			if(nomLongueur.length() > 3 && nomLongueur.length() < 30) {
 
-				if(nomLongueur.matches("^[a-zA-Z0-9 ]+$")) {
+				if(nomLongueur.matches("^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '-]+$")) {
 					
 					if(daoLongueur.selectionLongueurParNom(nomLongueur) != null ) {
 	                	

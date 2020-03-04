@@ -1,20 +1,20 @@
-<form method="post" action="AjoutSite" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
-	<h1 class="font-weight-bold text-light">AJOUT D'UN SITE</h1>
+<form method="post" action="AjoutTopo" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
+	<h1 class="font-weight-bold text-light">AJOUT D'UN TOPO</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireAjoutSite.erreursAjoutSite ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireAjoutSite.resultatAjoutSite }</p>
+		<p class="${ empty traitementFormulaireAjoutTopo.erreursAjoutTopo ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireAjoutTopo.resultatAjoutTopo }</p>
 	</div>
 
   	<div class="form-group">
-    	<label for="nomSite" class="form-label-color">Nom du site</label>
-		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutSite.erreursAjoutSite['nomSite'] }</div>
-    	<input id="nomSite" name="nomSite" type="text" class="form-control" aria-describedby="nomSite" value="<c:out value="${ nouveauSite.nomSite }"/>">
+    	<label for="nomTopo" class="form-label-color">Nom du topo</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutTopo.erreursAjoutTopo['nomTopo'] }</div>
+    	<input id="nomTopo" name="nomTopo" type="text" class="form-control" aria-describedby="nomTopo" value="<c:out value="${ nouveauTopo.nomTopo }"/>">
   	</div>
   	
   	<div class="form-group">
-    	<label for="regionSite" class="form-label-color">Région</label>
+    	<label for="regionTopo" class="form-label-color">Région</label>
 		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutSite.erreursAjoutSite['regionSite'] }</div>	
-    	<select class="custom-select mr-sm-2" id="regionSite" name="regionSite">
+    	<select class="custom-select mr-sm-2" id="regionTopo" name="regionTopo">
       		<option selected></option>
         	<option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
 	       	<option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
@@ -33,14 +33,14 @@
 	        <option value="Occitanie">Occitanie</option>
 	        <option value="Pays de la Loire">Pays de la Loire</option>
 	        <option value="Provence-Alpes-Cote d'Azur">Provence-Alpes-Côte d'Azur</option>
-	        <option value="La Réunion" class="selectTexte">La Réunion</option>
+	        <option value="La Réunion">La Réunion</option>
  		</select>
    	</div>
    
    	<div class="form-group">
-    	<label for="commentaireSite" class="form-label-color">Commentaire</label>
-       	<textarea class="form-control" id="commentaireSite" name="commentaireSite"></textarea>
+    	<label for="descriptionTopo" class="form-label-color">Description</label>
+       	<textarea class="form-control" id="descriptionTopo" name="descriptionTopo"></textarea>
    	</div>
    
-	<button type="submit" class="btn btn-success">Ajouter le site</button>
+	<button type="submit" class="btn btn-success">Ajouter le topo</button>
 </form>

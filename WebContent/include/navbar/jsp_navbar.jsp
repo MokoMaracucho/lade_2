@@ -37,7 +37,7 @@
          
          			<a class="dropdown-item" href="AjoutLongueur">Ajout d'une longueur</a>
          
-         			<a class="dropdown-item" href="#">Ajout d'un topo</a>
+         			<a class="dropdown-item" href="AjoutTopo">Ajout d'un topo</a>
        			</div>
       		</li>
 	      

@@ -66,7 +66,7 @@ public class SRV_AjoutSecteur extends HttpServlet {
 			
 			List<BN_SiteInnerJoin> listeSites = daoSite.selectionSites();
 			
-			request.setAttribute(ATT_LISTE_SITES, listeSites);
+			request.setAttribute(ATT_LISTE_SITES, 							listeSites);
 			request.setAttribute(ATT_TRAITEMENT_FORMULAIRE_AJOUT_SECTEUR, 	traitementFormulaireAjoutSecteur);
 			request.setAttribute(ATT_NOUVEAU_SECTEUR,		 				nouveauSecteur);
 			
