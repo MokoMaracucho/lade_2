@@ -39,6 +39,7 @@
    
    	<div class="form-group">
     	<label for="descriptionTopo" class="form-label-color">Description</label>
+		<div class="small text-warning p-form-warning"></div>
        	<textarea class="form-control" id="descriptionTopo" name="descriptionTopo"></textarea>
    	</div>
    
