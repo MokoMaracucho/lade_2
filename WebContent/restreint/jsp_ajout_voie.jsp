@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link type="text/css" rel="stylesheet" href="style.css">
-		<title>Ajout d'un secteur - Les amis de l'escalade</title>
+		<title>Ajout d'une voie - Les amis de l'escalade</title>
 		
 		<!-- CDN : Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 offset-md-3">
-						<c:import url="../include/formulaires/jsp_formulaire_ajout_secteur.jsp" ></c:import>
+						<c:import url="../include/formulaires/jsp_formulaire_ajout_voie.jsp" ></c:import>
 					</div>
 	  			</div>
 		    </div>

@@ -97,13 +97,11 @@ public class DAO_Factory {
 		return new DAO_ImplementationSecteur(this);
 	}
 	
-//	public DAO_Voie getDaoVoie() {
-//		
-//		return new DAO_ImplementationVoie(this);
-//	}
-//	
+	public DAO_Voie getDaoVoie() {
+		
+		return new DAO_ImplementationVoie(this);
+	}
 	
-//	
 //	public DAO_Longueur getDaoLongueur() {
 //		
 //		return new DAO_ImplementationLongueur(this);

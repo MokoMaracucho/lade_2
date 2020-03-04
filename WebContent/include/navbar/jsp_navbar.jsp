@@ -33,7 +33,7 @@
          				
          			<a class="dropdown-item" href="AjoutSecteur">Ajout d'un secteur</a>
          
-         			<a class="dropdown-item" href="#">Ajout d'une voie</a>
+         			<a class="dropdown-item" href="AjoutVoie">Ajout d'une voie</a>
          
          			<a class="dropdown-item" href="#">Ajout d'une longueur</a>
          
