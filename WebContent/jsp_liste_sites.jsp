@@ -35,9 +35,9 @@
 				        				<div class="small text-secondary mb-2"><strong>Region : </strong>${ site.regionSite }</div>
 				        				
 				        				<div>
-				        					<a type="button" href="/oc_lade/ListeSecteurs?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Voir les secteurs</a>
+				        					<a type="button" href="/lade/ListeSecteurs?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Voir les secteurs</a>
 		
-				        					<a type="button" href="/oc_lade/DetailSite?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Afficher les détails</a>
+				        					<a type="button" href="/lade/DetailSite?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Afficher les détails</a>
 				        				</div>
 			        				</div>
 		        				</div>

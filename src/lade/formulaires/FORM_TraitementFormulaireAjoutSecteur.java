@@ -54,10 +54,6 @@ public class FORM_TraitementFormulaireAjoutSecteur {
 		
 		String nomSite 				= getValeurChampTexteFormulaire(request, CHAMP_NOM_SITE);
 		String nomSecteur			= getValeurChampTexteFormulaire(request, CHAMP_NOM_SECTEUR);
-		
-		System.out.println(idCreateurSecteur);
-		System.out.println(nomSite);
-		System.out.println(nomSecteur);
 	
 		BN_Secteur nouveauSecteur = new BN_Secteur();
 			

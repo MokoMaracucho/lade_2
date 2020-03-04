@@ -21,5 +21,5 @@
     	<input id="nomSecteur" name="nomSecteur" type="text" class="form-control" aria-describedby="nomSecteur" value="<c:out value="${ nouveauSecteur.nomSecteur }"/>">
   	</div>
    
-	<button type="submit" class="btn btn-success">Ajouter le site</button>
+	<button type="submit" class="btn btn-success">Ajouter le secteur</button>
 </form>

@@ -53,7 +53,7 @@
          
          			<a class="dropdown-item" href="ListeSites">Liste des sites</a>
          
-         			<a class="dropdown-item" href="#">Liste des secteurs</a>
+         			<a class="dropdown-item" href="ListeSecteurs">Liste des secteurs</a>
          
          			<a class="dropdown-item" href="#">Liste des voies</a>
          

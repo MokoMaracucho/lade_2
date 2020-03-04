@@ -2,7 +2,7 @@
 	<h1 class="font-weight-bold text-light">AJOUT D'UN SITE</h1>
 	
 	<div>
-		<p class="${ empty traitementFormulaireConnection.erreursConnection ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireConnection.resultatConnection }</p>
+		<p class="${ empty traitementFormulaireAjoutSite.erreursAjoutSite ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireAjoutSite.resultatAjoutSite }</p>
 	</div>
 
   	<div class="form-group">

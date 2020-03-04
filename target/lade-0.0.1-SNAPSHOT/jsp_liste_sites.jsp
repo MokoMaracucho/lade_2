@@ -26,23 +26,21 @@
 			        	
 			        	<c:otherwise>
 			        		<c:forEach var="site" items="${ requestScope['listeSites'] }">
-			        				<div class="col-md-3 form form-expand-lg form-dark bg-dark form-margin-padding form-border">
-			        					<h6 class="font-weight-bold text-light">${ site.nomSite }</h6>
-				        				
-				        				<div class="corpsSection">
-					        				<span class="spanSection p-list-text-color"><strong>Créateur : </strong>${ site.createurSite.prenomUtilisateur } ${ site.createurSite.nomUtilisateur }</span>
-					        				<br/>
-					        				
-					        				<span class="spanSection p-list-text-color"><strong>Region : </strong>${ site.regionSite }</span>
-					        				<br/>
-					        				
-					        				<span class="spanSection p-list-text-color"><a href="/oc_lade/ListeSecteurs?nomSite=${ site.nomSite }">Voir les secteurs</a></span>
-					        				<br/>
-			
-											<span class="spanSection p-list-text-color"><a href="/oc_lade/DetailSite?nomSite=${ site.nomSite }">Afficher détails</a></span>
-				        				</div>
+		        				<div class="col-sm-3 form form-expand-lg form-dark bg-dark form-margin-padding form-border m-1 mt-3">
+		        					<h5 class="font-weight-bold text-light">${ site.nomSite }</h5>
 			        				
+			        				<div class="corpsSection">
+				        				<div class="small text-secondary"><strong>Créateur : </strong>${ site.createurSite.prenomUtilisateur } ${ site.createurSite.nomUtilisateur }</div>
+				        				
+				        				<div class="small text-secondary mb-2"><strong>Region : </strong>${ site.regionSite }</div>
+				        				
+				        				<div>
+				        					<a type="button" href="/lade/ListeSecteurs?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Voir les secteurs</a>
+		
+				        					<a type="button" href="/lade/DetailSite?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Afficher les détails</a>
+				        				</div>
 			        				</div>
+		        				</div>
 			        		</c:forEach>
 			        	</c:otherwise>
 			        </c:choose>

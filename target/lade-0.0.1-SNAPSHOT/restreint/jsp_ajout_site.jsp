@@ -13,7 +13,7 @@
 	
 	<body class="bg-grey">
 		<header>
-			<c:import url="/include/navbar/jsp_navbar.jsp" ></c:import>
+			<c:import url="../include/navbar/jsp_navbar.jsp" ></c:import>
 		</header>
 		
 		<div class="div-container">
