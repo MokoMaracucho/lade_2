@@ -41,23 +41,23 @@ public class FORM_TraitementFormulaireConnection {
 	
 	public BN_Utilisateur traitementFormulaireConnection(HttpServletRequest request) {
 		
-		String email 			= getValeurChampFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
-		String motDePasse 		= getValeurChampFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
+		String emailUtilisateur 			= getValeurChampFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
+		String motDePasseUtilisateur 		= getValeurChampFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
 		
 		BN_Utilisateur utilisateur = new BN_Utilisateur();
 		
 		try {
 			
-			traitementEmail(email, utilisateur);
-			traitementMotDePasse(motDePasse, utilisateur);
+			traitementEmail(emailUtilisateur, utilisateur);
+			traitementMotDePasse(motDePasseUtilisateur, utilisateur);
 			
 			if(erreursConnection.isEmpty()) {
 				
-				utilisateur = daoUtilisateur.selectionUtilisateurParEmail(email);
+				utilisateur = daoUtilisateur.selectionUtilisateurParEmail(emailUtilisateur);
 				
-				String emailUtilisateur = utilisateur.getEmailUtilisateur();
+				String emailUtilisateurBDD = utilisateur.getEmailUtilisateur();
 				
-				if(emailUtilisateur == null) {
+				if(emailUtilisateurBDD == null) {
 					
 					setErreursConnection(CHAMP_EMAIL_UTILISATEUR, "Cette adresse email ne correspond à aucun utilisateur. Veuillez en utiliser une autre.");
 					
@@ -69,7 +69,7 @@ public class FORM_TraitementFormulaireConnection {
 
 					String motDePasseChiffreUtilisateur = utilisateur.getMotDePasseUtilisateur();
 					
-					if (passwordEncryptor.checkPassword(motDePasse, motDePasseChiffreUtilisateur)) {
+					if (passwordEncryptor.checkPassword(motDePasseUtilisateur, motDePasseChiffreUtilisateur)) {
 
 						resultatConnection = "Succés de la connection.";
 						

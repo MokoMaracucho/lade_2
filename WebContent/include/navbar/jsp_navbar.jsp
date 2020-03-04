@@ -31,7 +31,7 @@
        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
          			<a class="dropdown-item" href="AjoutSite">Ajout d'un site</a>
          				
-         			<a class="dropdown-item" href="#">Ajout d'un secteur</a>
+         			<a class="dropdown-item" href="AjoutSecteur">Ajout d'un secteur</a>
          
          			<a class="dropdown-item" href="#">Ajout d'une voie</a>
          

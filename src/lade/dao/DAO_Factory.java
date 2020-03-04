@@ -91,12 +91,12 @@ public class DAO_Factory {
 		
 		return new DAO_ImplementationCommentaireSite(this);
 	}
-//	
-//	public DAO_Secteur getDaoSecteur() {
-//		
-//		return new DAO_ImplementationSecteur(this);
-//	}
-//	
+	
+	public DAO_Secteur getDaoSecteur() {
+		
+		return new DAO_ImplementationSecteur(this);
+	}
+	
 //	public DAO_Voie getDaoVoie() {
 //		
 //		return new DAO_ImplementationVoie(this);
