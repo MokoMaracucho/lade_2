@@ -17,7 +17,7 @@
 
   	<div class="form-group">
     	<label for="nomVoie" class="form-label-color">Nom de la voie</label>
-		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutSite.erreursAjoutSite['nomSite'] }</div>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutVoie.erreursAjoutVoie['nomVoie'] }</div>
     	<input id="nomVoie" name="nomVoie" type="text" class="form-control" aria-describedby="nomVoie" value="<c:out value="${ nouvelleVoie.nomVoie }"/>">
   	</div>
   	

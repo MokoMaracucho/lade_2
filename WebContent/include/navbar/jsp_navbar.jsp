@@ -35,7 +35,7 @@
          
          			<a class="dropdown-item" href="AjoutVoie">Ajout d'une voie</a>
          
-         			<a class="dropdown-item" href="#">Ajout d'une longueur</a>
+         			<a class="dropdown-item" href="AjoutLongueur">Ajout d'une longueur</a>
          
          			<a class="dropdown-item" href="#">Ajout d'un topo</a>
        			</div>

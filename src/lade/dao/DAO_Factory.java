@@ -102,11 +102,11 @@ public class DAO_Factory {
 		return new DAO_ImplementationVoie(this);
 	}
 	
-//	public DAO_Longueur getDaoLongueur() {
-//		
-//		return new DAO_ImplementationLongueur(this);
-//	}
-//	
+	public DAO_Longueur getDaoLongueur() {
+		
+		return new DAO_ImplementationLongueur(this);
+	}
+	
 //	public DAO_Topo getDaoTopo() {
 //		
 //		return new DAO_ImplementationTopo(this);
