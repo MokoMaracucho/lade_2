@@ -15,6 +15,16 @@
 		<header>
 			<c:import url="/include/navbar/jsp_navbar.jsp" ></c:import>
 		</header>
+		
+		<div class="div-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<c:import url="../include/formulaires/jsp_formulaire_ajout_site.jsp" ></c:import>
+					</div>
+	  			</div>
+		    </div>
+		</div>
 
 		<!-- CDN : JQuery / Popper.js / Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

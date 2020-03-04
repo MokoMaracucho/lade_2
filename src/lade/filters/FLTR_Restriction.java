@@ -29,10 +29,6 @@ public class FLTR_Restriction implements Filter  {
         HttpServletResponse response	= (HttpServletResponse) att_response;
 
         HttpSession session = request.getSession();
-        
-        String servletPath = request.getServletPath();
-        
-        System.out.println("#INFO " + new Date() + " -ServletPath : " + servletPath + ", URL = " + request.getRequestURL());
 
         if (session.getAttribute(ATT_SESSION_UTILISATEUR) == null) {
         	
