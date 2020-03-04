@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lade.beans.BN_Utilisateur;
+import lade.dao.DAO_Factory;
+import lade.dao.DAO_Utilisateur;
 import lade.formulaires.FORM_TraitementFormulaireInscription;
 
 @WebServlet("/Inscription")
 public class SRV_Inscription extends HttpServlet {
-
+	
 	private static final long serialVersionUID = 1L;
 
 	public static final String VUE_INSCRIPTION 							= "/jsp_inscription.jsp";
@@ -23,6 +25,16 @@ public class SRV_Inscription extends HttpServlet {
 	public static final String ATT_TRAITEMENT_FORMULAIRE_INSCRIPTION 	= "traitementFormulaireInscription";
 	public static final String ATT_NOUVEL_UTILISATEUR 					= "nouvelUtilisateur";
  	public static final String ATT_SESSION_UTILISATEUR					= "sessionUtilisateur";
+	
+	public static final String CONFIGURATION_DAO_FACTORY 				= "daoFactory";
+
+	
+	private DAO_Utilisateur daoUtilisateur;
+    
+    public void init() throws ServletException {
+
+        this.daoUtilisateur = ((DAO_Factory) getServletContext().getAttribute(CONFIGURATION_DAO_FACTORY)).getDaoUtilisateur();
+    }
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -30,8 +42,8 @@ public class SRV_Inscription extends HttpServlet {
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-		FORM_TraitementFormulaireInscription traitementFormulaireInscription = new FORM_TraitementFormulaireInscription();
+		
+		FORM_TraitementFormulaireInscription traitementFormulaireInscription = new FORM_TraitementFormulaireInscription(daoUtilisateur);
 		
 		BN_Utilisateur nouvelUtilisateur = traitementFormulaireInscription.traitementFormulaireInscription(request);
 		
@@ -52,5 +64,5 @@ public class SRV_Inscription extends HttpServlet {
 			
 			this.getServletContext().getRequestDispatcher(VUE_INSCRIPTION).forward(request, response);
 		}
-    }
+	}
 }

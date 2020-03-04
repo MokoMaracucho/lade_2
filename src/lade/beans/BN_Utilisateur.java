@@ -1,6 +1,6 @@
 package lade.beans;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class BN_Utilisateur {
 

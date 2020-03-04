@@ -12,6 +12,10 @@
 		</jsp-property-group>
 	</jsp-config>
 	
+	<listener>
+    	<listener-class>lade.configuration.CONF_InitialisationDaoFactory</listener-class>
+	</listener>
+	
 	<filter>
     	<filter-name>Set Character Encoding</filter-name>
     	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>

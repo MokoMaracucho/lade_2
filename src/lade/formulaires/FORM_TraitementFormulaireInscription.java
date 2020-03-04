@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 
 import lade.beans.BN_Utilisateur;
+import lade.dao.DAO_Exception;
+import lade.dao.DAO_Utilisateur;
 
 public class FORM_TraitementFormulaireInscription {
 	
@@ -25,47 +27,61 @@ public class FORM_TraitementFormulaireInscription {
 	String resultatInscription;
 	
 	Map<String, String> erreursInscription = new HashMap<String, String>();
-
+	
+	private DAO_Utilisateur daoUtilisateur;
+	
+	public FORM_TraitementFormulaireInscription(DAO_Utilisateur daoUtilisateur) {
+		
+		this.daoUtilisateur = daoUtilisateur;
+	}
+	
 	public String getResultatInscription() {
 		return resultatInscription;
 	}
 
-	public void setResultatInscription(String resultatInscription) {
-		this.resultatInscription = resultatInscription;
+	public void setResultatInscription(String resultat_inscription) {
+		this.resultatInscription = resultat_inscription;
 	}
 
 	public Map<String, String> getErreursInscription() {
 		return erreursInscription;
 	}
 
-	public void setErreursInscription(Map<String, String> erreursInscription) {
-		this.erreursInscription = erreursInscription;
-	}
-	
 	public BN_Utilisateur traitementFormulaireInscription(HttpServletRequest request) {
 		
-		String prenomUtilisateur 						= getValeurChampFormulaire(request, CHAMP_PRENOM_UTILISATEUR);
-		String nomUtilisateur 							= getValeurChampFormulaire(request, CHAMP_NOM_UTILISATEUR);
-		String emailUtilisateur 						= getValeurChampFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
-		String motDePasseUtilisateur 					= getValeurChampFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
-		String confirmationMotDePasseUtilisateur 		= getValeurChampFormulaire(request, CHAMP_CONFIRMATION_MOT_DE_PASSE_UTILISATEUR);
-		String numeroMembreUtilisateur 					= getValeurChampFormulaire(request, CHAMP_NUMERO_MEMBRE_UTILISATEUR);
+		String prenomUtilisateur 						= getValeurChampTexteFormulaire(request, CHAMP_PRENOM_UTILISATEUR);
+		String nomUtilisateur 							= getValeurChampTexteFormulaire(request, CHAMP_NOM_UTILISATEUR);
+		String emailUtilisateur 						= getValeurChampTexteFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
+		String motDePasseUtilisateur 					= getValeurChampTexteFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
+		String confirmationMotDePasseUtilisateur 		= getValeurChampTexteFormulaire(request, CHAMP_CONFIRMATION_MOT_DE_PASSE_UTILISATEUR);
+		String numeroMembreUtilisateur 					= getValeurChampTexteFormulaire(request, CHAMP_NUMERO_MEMBRE_UTILISATEUR);
 	
 		BN_Utilisateur nouvelUtilisateur = new BN_Utilisateur();
 			
-		traitementPrenom(prenomUtilisateur, nouvelUtilisateur);
-		traitementNom(nomUtilisateur, nouvelUtilisateur);
-		traitementEmail(emailUtilisateur, nouvelUtilisateur);
-		traitementMotDePasse(motDePasseUtilisateur, confirmationMotDePasseUtilisateur, nouvelUtilisateur);
-		traitementNumeroMembre(numeroMembreUtilisateur, nouvelUtilisateur);
-	
-		if(erreursInscription.isEmpty()) {
+		try {
 			
-			resultatInscription = "Succés de l'inscription.";
+			traitementPrenom(prenomUtilisateur, nouvelUtilisateur);
+			traitementNom(nomUtilisateur, nouvelUtilisateur);
+			traitementEmail(emailUtilisateur, nouvelUtilisateur);
+			traitementMotDePasse(motDePasseUtilisateur, confirmationMotDePasseUtilisateur, nouvelUtilisateur);
+			traitementNumeroMembre(numeroMembreUtilisateur, nouvelUtilisateur);
 		
-		} else {
+			if(erreursInscription.isEmpty()) {
+				
+				daoUtilisateur.insertionUtilisateur(nouvelUtilisateur);
+				
+				resultatInscription = "Succés de l'inscription.";
 			
-			resultatInscription = "Échec de l'inscription.";
+			} else {
+				
+				resultatInscription = "Échec de l'inscription.";
+			}
+			
+		} catch (DAO_Exception e) {
+			
+			resultatInscription = "Échec de l'inscription : une erreur imprévue est survenue. Merci de réessayer dans quelques instants.";
+			
+			e.printStackTrace();
 		}
 		
 		return nouvelUtilisateur;
@@ -154,7 +170,13 @@ public class FORM_TraitementFormulaireInscription {
 		
         if (emailUtilisateur != null && emailUtilisateur.trim().length() != 0) {
         	
-            if (!emailUtilisateur.matches("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) {
+            if (emailUtilisateur.matches("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) {
+            	
+            	if (daoUtilisateur.selectionUtilisateurParEmail(emailUtilisateur) != null ) {
+                	
+                    throw new FORM_Exception("Cette adresse email est déjà utilisée.");
+                }
+            } else {
             	
                 throw new FORM_Exception("L'adresse email n'est pas valide.");
             }
@@ -182,82 +204,76 @@ public class FORM_TraitementFormulaireInscription {
 	}
 
 	private void validationMotDePasse(String motDePasseUtilisateur, String confirmationMotDePasseUtilisateur) throws FORM_Exception {
-		
-		if (motDePasseUtilisateur != null && motDePasseUtilisateur.trim().length() != 0) { 
-			
-			if (confirmationMotDePasseUtilisateur != null && confirmationMotDePasseUtilisateur.trim().length() != 0) {
-		
-				if (motDePasseUtilisateur.equals(confirmationMotDePasseUtilisateur)) {
-	
-					if (motDePasseUtilisateur.length() >= 6 && motDePasseUtilisateur.length() <= 50) {
 
-						String regex_Minuscule = "[a-z]";
+		String regex_Minuscule = "[a-z]";
 
-						String regex_Majuscule = "[A-Z]";
+		String regex_Majuscule = "[A-Z]";
 
-						String regex_Chiffre = "[0-9]";
+		String regex_Chiffre = "[0-9]";
 
-						String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
+		String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
 
-						Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
+		Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
 
-						Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
+		Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
 
-						Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
+		Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
 
-						Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
+		Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
 
-						Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasseUtilisateur);
+		Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasseUtilisateur);
 
-						Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasseUtilisateur);
+		Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasseUtilisateur);
 
-						Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasseUtilisateur);
+		Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasseUtilisateur);
 
-						Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasseUtilisateur);
-	
-						if (matcher_Minuscule.find()) {
-	
-							if (matcher_Majuscule.find()) {
-	
-								if (matcher_Chiffre.find()) {
-	
-									if (matcher_Caractere_special.find()) {
-	
-										if (motDePasseUtilisateur.matches("[^a-zA-Z0-9 @^_!\\\"#$%&'()*+,./:;{}<>=|~?-]")) {
-	
-											throw new FORM_Exception("Le mot de passe comporte un caractère non-autorisé.");
-										}
-									} else {
-	
-										throw new FORM_Exception("Le mot-de-passe doit comporter au moins un caractère spécial.");
+		Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasseUtilisateur);
+
+		if (motDePasseUtilisateur != null && motDePasseUtilisateur.trim().length() != 0 && confirmationMotDePasseUtilisateur != null && confirmationMotDePasseUtilisateur.trim().length() != 0 ) {
+
+			if (motDePasseUtilisateur.equals(confirmationMotDePasseUtilisateur)) {
+
+				if (motDePasseUtilisateur.length() >= 8 && motDePasseUtilisateur.length() <= 50) {
+
+					if (matcher_Minuscule.find()) {
+
+						if (matcher_Majuscule.find()) {
+
+							if (matcher_Chiffre.find()) {
+
+								if (matcher_Caractere_special.find()) {
+
+									if (motDePasseUtilisateur.matches("[^a-zA-Z0-9 @^_!\\\"#$%&'()*+,./:;{}<>=|~?-]")) {
+
+										throw new FORM_Exception("Le mot de passe comporte un caractère non-autorisé.");
 									}
 								} else {
-	
-									throw new FORM_Exception("Le mot-de-passe doit comporter au moins un chiffre.");
+
+									throw new FORM_Exception("Le mot-de-passe doit comporter au moins un caractère spécial.");
 								}
 							} else {
-	
-								throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre majuscule.");
+
+								throw new FORM_Exception("Le mot-de-passe doit comporter au moins un chiffre.");
 							}
 						} else {
-	
-							throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre minuscule.");
+
+							throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre majuscule.");
 						}
 					} else {
-	
-						throw new FORM_Exception("Le mot-de-passe n'a pas une longueur appropriée.");
+
+						throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre minuscule.");
 					}
 				} else {
-	
-					throw new FORM_Exception("Il faut que les mots-de-passe renseignés soient identiques.");
+
+					throw new FORM_Exception("Le mot-de-passe n'a pas une longueur appropriée.");
 				}
 			} else {
-				
-				throw new FORM_Exception("Veuillez confirmer le mot-de-passe.");
+
+				throw new FORM_Exception("Il faut que les mots-de-passes renseignés soient identiques.");
 			}
 		} else {
 
-			throw new FORM_Exception("Veuillez renseigner un mot-de-passe.");
+			throw new FORM_Exception("Veuillez renseigner un mot-de-passe et le confirmer.");
 		}
 	}
 	
@@ -291,7 +307,7 @@ public class FORM_TraitementFormulaireInscription {
 		}
 	}
 	
-	private static String getValeurChampFormulaire(HttpServletRequest request, String nomChampTexteFormulaire) {
+	private static String getValeurChampTexteFormulaire(HttpServletRequest request, String nomChampTexteFormulaire) {
 		
 		String valeurChampTexteFormulaire = request.getParameter(nomChampTexteFormulaire);
 		
