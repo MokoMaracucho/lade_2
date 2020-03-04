@@ -55,7 +55,7 @@
          
          			<a class="dropdown-item" href="ListeSecteurs">Liste des secteurs</a>
          
-         			<a class="dropdown-item" href="#">Liste des voies</a>
+         			<a class="dropdown-item" href="ListeVoies">Liste des voies</a>
          
          			<a class="dropdown-item" href="#">Liste des longueurs</a>
          

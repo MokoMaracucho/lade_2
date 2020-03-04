@@ -25,7 +25,7 @@
 			        	</c:when>
 			        	
 			        	<c:otherwise>
-			        		<c:forEach var="site" items="${ requestScope['listeSecteurs'] }">
+			        		<c:forEach var="secteur" items="${ requestScope['listeSecteurs'] }">
 		        				<div class="col-sm-3 form form-expand-lg form-dark bg-dark form-margin-padding form-border m-1 mt-3">
 		        					<h5 class="font-weight-bold text-light">${ secteur.nomSecteur }</h5>
 			        				
