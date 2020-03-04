@@ -106,7 +106,7 @@ public class FORM_TraitementFormulaireInscription {
 
 			if (prenomUtilisateur.length() > 2 && prenomUtilisateur.length() < 30) {
 
-				if (!prenomUtilisateur.matches("^[a-zA-Z]+$")) {
+				if (!prenomUtilisateur.matches("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '-]+$")) {
 
 					throw new FORM_Exception("Le prénom ne doit comporter que des lettres.");
 				}
@@ -139,7 +139,7 @@ public class FORM_TraitementFormulaireInscription {
 
 			if (nomUtilisateur.length() > 3 && nomUtilisateur.length() < 30) {
 
-				if (!nomUtilisateur.matches("^[a-zA-Z]+$")) {
+				if (!nomUtilisateur.matches("^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '-]+$")) {
 
 					throw new FORM_Exception("Le nom ne doit comporter que des lettres.");
 				}

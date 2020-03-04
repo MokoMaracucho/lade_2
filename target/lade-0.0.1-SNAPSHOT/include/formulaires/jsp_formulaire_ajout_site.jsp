@@ -1,41 +1,50 @@
-<form method="post" action="AjoutSite" class="blocFormulaire">
-	<div>
-		<div class="titreFormulaire">
-			AJOUT D'UN SITE
-		</div>
-		<div class="formulaire">
-   	 		<p class="${empty traitementFormulaireAjoutSite.erreursAjoutSite ? 'succesAjoutSite' : 'erreurAjoutSite'}">${traitementFormulaireAjoutSite.resultatAjoutSite}</p>
+<form method="post" action="Connection" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
+	<h1 class="font-weight-bold text-light">AJOUT D'UN SITE</h1>
 	
-	    	<span class="erreurs">${traitementFormulaireAjoutSite.erreursAjoutSite['nomSite']}</span>
-	        <input type="text" name="nomSite" id="nomSite" class="inputBase" value="<c:out value="${nouveauSite.nomSite}"/>" placeholder="Nom du site" maxlength="30 required" />
+	<div>
+		<p class="${ empty traitementFormulaireConnection.erreursConnection ? 'succesConnection text-success' : 'erreurConnection text-danger' } font-weight-bold">${ traitementFormulaireConnection.resultatConnection }</p>
+	</div>
+
+  	<div class="form-group">
+    	<label for="nomSite" class="form-label-color">Nom du site</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutSite.erreursAjoutSite['nomSite'] }</div>
+    	<input id="nomSite" name="nomSite" type="text" class="form-control" aria-describedby="nomSite" value="<c:out value="${ nouveauSite.nomSite }"/>">
+  	</div>
+  	
+  	<div class="form-group">
+    	<label for="regionSite" class="form-label-color">Région</label>
+		<div class="small text-warning p-form-warning">${ traitementFormulaireAjoutSite.erreursAjoutSite['regionSite'] }</div>
+		
+      		
+    	<select class="custom-select mr-sm-2" id="regionSite" name="regionSite">
+      		<option selected></option>
+        	<option value="Auvergne-Rhône-Alpes" class="selectTexte">Auvergne-Rhône-Alpes</option>
+	       	<option value="Bourgogne-Franche-Comté" class="selectTexte">Bourgogne-Franche-Comté</option>
+	        <option value="Bretagne" class="selectTexte">Bretagne</option>
+	        <option value="Centre-Val de Loire" class="selectTexte">Centre-Val de Loire</option>
+	        <option value="Corse" class="selectTexte">Corse</option>
+	        <option value="Grand Est" class="selectTexte">Grand Est</option>
+	        <option value="Guadeloupe" class="selectTexte">Guadeloupe</option>
+	        <option value="Guyane" class="selectTexte">Guyane</option>
+	        <option value="Haut-de-France" class="selectTexte">Haut-de-France</option>
+	        <option value="Île-de-France" class="selectTexte">Île-de-France</option>
+	        <option value="Martinique" class="selectTexte">Martinique</option>
+	        <option value="Mayotte" class="selectTexte">Mayotte</option>
+	        <option value="Normandie" class="selectTexte">Normandie</option>
+	        <option value="Nouvelle-Aquitaine" class="selectTexte">Nouvelle-Aquitaine</option>
+	        <option value="Occitanie" class="selectTexte">Occitanie</option>
+	        <option value="Pays de la Loire" class="selectTexte">Pays de la Loire</option>
+	        <option value="Provence-Alpes-Cote d'Azur" class="selectTexte">Provence-Alpes-Côte d'Azur</option>
+	        <option value="La Réunion" class="selectTexte">La Réunion</option>
+ 		</select>
+   	</div>
+   
+   	<div class="form-group">
+    	<label for="commentaireSite" class="form-label-color">Commentaire</label>
+		<div class="small">${ traitementFormulaireAjoutSite.erreursAjoutSite['regionSite'] }</div>
     	
-       		<span class="erreurs">${traitementFormulaireAjoutSite.erreursAjoutSite['regionSite']}</span><br/>
-    		<label for="regionSite" id="labelRegion" >Région :</label><br/>
-       		<select name="regionSite" id="regionSite">
-				<option value=""></option>
-           		<option value="Auvergne-Rhône-Alpes" class="selectTexte">Auvergne-Rhône-Alpes</option>
-	        	<option value="Bourgogne-Franche-Comté" class="selectTexte">Bourgogne-Franche-Comté</option>
-	            <option value="Bretagne" class="selectTexte">Bretagne</option>
-	            <option value="Centre-Val de Loire" class="selectTexte">Centre-Val de Loire</option>
-	            <option value="Corse" class="selectTexte">Corse</option>
-	            <option value="Grand Est" class="selectTexte">Grand Est</option>
-	            <option value="Guadeloupe" class="selectTexte">Guadeloupe</option>
-	            <option value="Guyane" class="selectTexte">Guyane</option>
-	            <option value="Haut-de-France" class="selectTexte">Haut-de-France</option>
-	            <option value="Île-de-France" class="selectTexte">Île-de-France</option>
-	            <option value="Martinique" class="selectTexte">Martinique</option>
-	            <option value="Mayotte" class="selectTexte">Mayotte</option>
-	            <option value="Normandie" class="selectTexte">Normandie</option>
-	            <option value="Nouvelle-Aquitaine" class="selectTexte">Nouvelle-Aquitaine</option>
-	            <option value="Occitanie" class="selectTexte">Occitanie</option>
-	            <option value="Pays de la Loire" class="selectTexte">Pays de la Loire</option>
-	            <option value="Provence-Alpes-Cote d'Azur" class="selectTexte">Provence-Alpes-Côte d'Azur</option>
-	            <option value="La Réunion" class="selectTexte">La Réunion</option>
-      		</select>
+       	<textarea class="form-control" id="commentaireSite" name="commentaireSite"></textarea>
+   	</div>
    
-       		<textarea name="commentaireSite" id="commentaireSite" placeholder="Commentaire..."></textarea>
-   
-        	<input type="submit" id="submitAjoutSite" value="Valider" />
-    	</div>
-    </div>
+	<button type="submit" class="btn btn-success">Ajouter le site</button>
 </form>

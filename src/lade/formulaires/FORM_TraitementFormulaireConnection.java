@@ -44,8 +44,6 @@ public class FORM_TraitementFormulaireConnection {
 		String email 			= getValeurChampFormulaire(request, CHAMP_EMAIL_UTILISATEUR);
 		String motDePasse 		= getValeurChampFormulaire(request, CHAMP_MOT_DE_PASSE_UTILISATEUR);
 		
-		System.out.println(motDePasse);
-		
 		BN_Utilisateur utilisateur = new BN_Utilisateur();
 		
 		try {

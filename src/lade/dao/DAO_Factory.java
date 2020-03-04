@@ -82,10 +82,15 @@ public class DAO_Factory {
 		return new DAO_ImplementationUtilisateur(this);
 	}
 	
-//	public DAO_Site getDaoSite() {
-//		
-//		return new DAO_ImplementationSite(this);
-//	}
+	public DAO_Site getDaoSite() {
+		
+		return new DAO_ImplementationSite(this);
+	}
+	
+	public DAO_Commentaire getDaoCommentaire() {
+		
+		return new DAO_ImplementationCommentaireSite(this);
+	}
 //	
 //	public DAO_Secteur getDaoSecteur() {
 //		
@@ -97,10 +102,7 @@ public class DAO_Factory {
 //		return new DAO_ImplementationVoie(this);
 //	}
 //	
-//	public DAO_Commentaire getDaoCommentaire() {
-//		
-//		return new DAO_ImplementationCommentaireSite(this);
-//	}
+	
 //	
 //	public DAO_Longueur getDaoLongueur() {
 //		
