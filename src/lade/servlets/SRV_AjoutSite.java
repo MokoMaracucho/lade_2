@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SRV_AjoutSite extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
 	public static final String VUE_AJOUT_SITE 							= "/restreint/jsp_ajout_site.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

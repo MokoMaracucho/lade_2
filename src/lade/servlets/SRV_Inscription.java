@@ -17,7 +17,7 @@ public class SRV_Inscription extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String VUE_INSCRIPTION 							= "/WEB-INF/jsp_inscription.jsp";
+	public static final String VUE_INSCRIPTION 							= "/jsp_inscription.jsp";
 	public static final String URL_ACCUEIL								= "/lade/Accueil";
 
 	public static final String ATT_TRAITEMENT_FORMULAIRE_INSCRIPTION 	= "traitementFormulaireInscription";

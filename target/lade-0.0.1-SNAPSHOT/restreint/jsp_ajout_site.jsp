@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link type="text/css" rel="stylesheet" href="style.css">
-		<title>Accueil - Les amis de l'escalade</title>
+		<title>Ajout d'un site - Les amis de l'escalade</title>
 		
 		<!-- CDN : Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,7 +13,7 @@
 	
 	<body class="bg-grey">
 		<header>
-			<c:import url="include/navbar/jsp_navbar.jsp" ></c:import>
+			<c:import url="/WEB-INF/include/navbar/jsp_navbar.jsp" ></c:import>
 		</header>
 		
 		<!-- CDN : JQuery / Popper.js / Bootstrap JS -->

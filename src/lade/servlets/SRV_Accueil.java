@@ -13,7 +13,7 @@ public class SRV_Accueil extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String VUE_ACCUEIL = "/WEB-INF/jsp_accueil.jsp";
+	public static final String VUE_ACCUEIL = "/jsp_accueil.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -21,7 +21,7 @@
 	      	
 	      	<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	    		<li class="nav-item">
-	        		<a class="nav-link" href="/lade/Connection">Deconnection <span class="sr-only">(current)</span></a>
+	        		<a class="nav-link" href="/lade/Deconnection">Deconnection <span class="sr-only">(current)</span></a>
 	      		</li>
 	      	</c:if>
 	      
@@ -29,7 +29,7 @@
         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajouts </a>
        			
        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         			<a class="dropdown-item" href="#">Ajout d'un site</a>
+         			<a class="dropdown-item" href="AjoutSite">Ajout d'un site</a>
          				
          			<a class="dropdown-item" href="#">Ajout d'un secteur</a>
          

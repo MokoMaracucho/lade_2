@@ -8,7 +8,17 @@
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
-			<include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+			<include-prelude>/taglibs.jsp</include-prelude>
 		</jsp-property-group>
 	</jsp-config>
+	
+	<filter>
+        <filter-name>Restriction</filter-name>
+        <filter-class>lade.filters.FLTR_Restriction</filter-class>
+	</filter>
+	<filter-mapping>
+        <filter-name>Restriction</filter-name>
+        <url-pattern>/restreint/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
 </web-app>

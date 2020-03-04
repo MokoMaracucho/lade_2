@@ -17,7 +17,7 @@ public class SRV_Connection extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String VUE_CONNECTION 							= "/WEB-INF/jsp_connection.jsp";
+	public static final String VUE_CONNECTION 							= "//jsp_connection.jsp";
 	public static final String URL_ACCUEIL								= "/lade/Accueil";
 	
 	public static final String ATT_TRAITEMENT_FORMULAIRE_CONNECTION 	= "traitementFormulaireConnection";
