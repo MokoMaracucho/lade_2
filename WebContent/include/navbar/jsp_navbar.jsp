@@ -45,7 +45,7 @@
         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listes </a>
        			
        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         			<a class="dropdown-item" href="#">Liste des utilisateurs</a>
+         			<a class="dropdown-item" href="ListeUtilisateurs">Liste des utilisateurs</a>
          				
          			<a class="dropdown-item" href="#">Liste des membres</a>
          			
