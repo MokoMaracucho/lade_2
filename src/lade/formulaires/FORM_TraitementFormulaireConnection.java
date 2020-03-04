@@ -133,71 +133,77 @@ public class FORM_TraitementFormulaireConnection {
 		}
 	}
 
-	private void validationMotDePasse(String motDePasse) throws FORM_Exception {
-		if (motDePasse.equals(motDePasse)) {
-
-			if (motDePasse.length() >= 8 && motDePasse.length() <= 50) {
-
-				String regex_Minuscule = "[a-z]";
-
-				String regex_Majuscule = "[A-Z]";
-
-				String regex_Chiffre = "[0-9]";
-
-				String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
-
-				Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
-
-				Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
-
-				Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
-
-				Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
-
-				Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasse);
-
-				Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasse);
-
-				Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasse);
-
-				Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasse);
-
-
-				if (matcher_Minuscule.find()) {
-
-					if (matcher_Majuscule.find()) {
-
-						if (matcher_Chiffre.find()) {
-
-							if (matcher_Caractere_special.find()) {
-
-								if (motDePasse.matches("[^a-zA-Z0-9 @^_!\\\"#$%&'()*+,./:;{}<>=|~?-]")) {
-
-									throw new FORM_Exception("Le mot de passe comporte un caractère non-autorisé.");
+	private void validationMotDePasse(String motDePasseUtilisateur) throws FORM_Exception {
+		
+		if (motDePasseUtilisateur != null && motDePasseUtilisateur.trim().length() != 0) {
+		
+			if (motDePasseUtilisateur.equals(motDePasseUtilisateur)) {
+	
+				if (motDePasseUtilisateur.length() >= 8 && motDePasseUtilisateur.length() <= 50) {
+	
+					String regex_Minuscule = "[a-z]";
+	
+					String regex_Majuscule = "[A-Z]";
+	
+					String regex_Chiffre = "[0-9]";
+	
+					String regex_Caractere_special = "[- @^_!\"#$%&'()*+,./:;{}<>=|~?]";
+	
+					Pattern pattern_Minuscule = Pattern.compile(regex_Minuscule);
+	
+					Pattern pattern_Majuscule = Pattern.compile(regex_Majuscule);
+	
+					Pattern pattern_Chiffre = Pattern.compile(regex_Chiffre);
+	
+					Pattern pattern_Caractere_special = Pattern.compile(regex_Caractere_special);
+	
+					Matcher matcher_Minuscule = pattern_Minuscule.matcher(motDePasseUtilisateur);
+	
+					Matcher matcher_Majuscule = pattern_Majuscule.matcher(motDePasseUtilisateur);
+	
+					Matcher matcher_Chiffre = pattern_Chiffre.matcher(motDePasseUtilisateur);
+	
+					Matcher matcher_Caractere_special = pattern_Caractere_special.matcher(motDePasseUtilisateur);
+	
+					if (matcher_Minuscule.find()) {
+	
+						if (matcher_Majuscule.find()) {
+	
+							if (matcher_Chiffre.find()) {
+	
+								if (matcher_Caractere_special.find()) {
+	
+									if (motDePasseUtilisateur.matches("[^a-zA-Z0-9 @^_!\\\"#$%&'()*+,./:;{}<>=|~?-]")) {
+	
+										throw new FORM_Exception("Le mot de passe comporte un caractère non-autorisé.");
+									}
+								} else {
+	
+									throw new FORM_Exception("Le mot-de-passe doit comporter au moins un caractère spécial.");
 								}
 							} else {
-
-								throw new FORM_Exception("Le mot-de-passe doit comporter au moins un caractère spécial.");
+	
+								throw new FORM_Exception("Le mot-de-passe doit comporter au moins un chiffre.");
 							}
 						} else {
-
-							throw new FORM_Exception("Le mot-de-passe doit comporter au moins un chiffre.");
+	
+							throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre majuscule.");
 						}
 					} else {
-
-						throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre majuscule.");
+	
+						throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre minuscule.");
 					}
 				} else {
-
-					throw new FORM_Exception("Le mot-de-passe doit comporter au moins une lettre minuscule.");
+	
+					throw new FORM_Exception("Le mot-de-passe n'a pas une longueur appropriée.");
 				}
 			} else {
-
-				throw new FORM_Exception("Le mot-de-passe n'a pas une longueur appropriée.");
+	
+				throw new FORM_Exception("Il faut que les mots-de-passes renseignés soient identiques.");
 			}
 		} else {
 
-			throw new FORM_Exception("Il faut que les mots-de-passes renseignés soient identiques.");
+			throw new FORM_Exception("Veuillez renseigner un mot-de-passe.");
 		}
 	}
 	

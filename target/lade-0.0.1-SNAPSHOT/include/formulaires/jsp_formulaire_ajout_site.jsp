@@ -1,4 +1,4 @@
-<form method="post" action="Connection" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
+<form method="post" action="AjoutSite" class="form form-expand-lg form-dark bg-dark form-margin-padding form-border">
 	<h1 class="font-weight-bold text-light">AJOUT D'UN SITE</h1>
 	
 	<div>

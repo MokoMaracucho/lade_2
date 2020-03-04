@@ -16,6 +16,7 @@ lade/servlets/SRV_Connection.class
 lade/formulaires/FORM_Exception.class
 lade/dao/DAO_Site.class
 lade/servlets/SRV_Accueil.class
+lade/servlets/SRV_ListeSites.class
 lade/configuration/CONF_InitialisationDaoFactory.class
 lade/dao/DAO_Factory.class
 lade/dao/DAO_ImplementationSite.class
