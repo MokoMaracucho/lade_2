@@ -7,6 +7,8 @@ public class BN_ReservationTopoInnerJoin {
 	private Long idProprietaireTopo;
 	private Long idDemandeurReservationTopo;
 	private String statutReservationTopo;
+	private BN_Topo topoReservationTopo;
+
 	private BN_Utilisateur proprietaireTopo;
 	private BN_Utilisateur demandeurReservationTopo;
 	
@@ -48,6 +50,13 @@ public class BN_ReservationTopoInnerJoin {
 
 	public void setStatutReservationTopo(String statutReservationTopo) {
 		this.statutReservationTopo = statutReservationTopo;
+	}
+	public BN_Topo getTopoReservationTopo() {
+		return topoReservationTopo;
+	}
+
+	public void setTopoReservationTopo(BN_Topo topoReservationTopo) {
+		this.topoReservationTopo = topoReservationTopo;
 	}
 	
 	public BN_Utilisateur getProprietaireTopo() {

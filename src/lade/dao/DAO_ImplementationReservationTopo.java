@@ -12,13 +12,14 @@ import java.util.List;
 
 import lade.beans.BN_ReservationTopo;
 import lade.beans.BN_ReservationTopoInnerJoin;
+import lade.beans.BN_Topo;
 import lade.beans.BN_Utilisateur;
 
 public class DAO_ImplementationReservationTopo implements DAO_ReservationTopo {
 
 	private static final String SQL_INSERT_RESERVATION_TOPO = "INSERT INTO tb_reservation_topo (id_topo_reservation_topo, id_proprietaire_topo, id_demandeur_reservation_topo, statut_reservation_topo) VALUES (?, ?, ?, ?)";
 
-	private static final String SQL_SELECT_RESERVATIONS_TOPO_INNER_JOIN_PAR_ID_PROPRIETAIRE = "";
+	private static final String SQL_SELECT_RESERVATIONS_TOPO_INNER_JOIN_PAR_ID_PROPRIETAIRE = "SELECT r.id_reservation_topo, r.id_topo_reservation_topo, r.id_proprietaire_topo, r.id_demandeur_reservation_topo, r.statut_reservation_topo, t.id_topo, t.id_proprietaire_topo, t.nom_topo, t.region_topo, t.description_topo, t.date_parution_topo, t.disponibilite_topo, p.id_utilisateur, p.prenom_utilisateur, p.nom_utilisateur, p.email_utilisateur, p.mot_de_passe_utilisateur, p.numero_membre_utilisateur, d.id_utilisateur, d.prenom_utilisateur, d.nom_utilisateur, d.email_utilisateur, d.mot_de_passe_utilisateur, d.numero_membre_utilisateur FROM tb_reservation_topo r INNER JOIN tb_topo t ON r.id_topo_reservation_topo = t.id_topo INNER JOIN tb_utilisateur p ON r.id_proprietaire_topo = p.id_utilisateur INNER JOIN tb_utilisateur d ON r.id_demandeur_reservation_topo = d.id_utilisateur WHERE r.id_proprietaire_topo = ?";
 	
 	private DAO_Factory daoFactory;
 	
@@ -44,7 +45,7 @@ public class DAO_ImplementationReservationTopo implements DAO_ReservationTopo {
 			
 			if(statut == 0) {
 				
-				throw new DAO_Exception("Échec de la création du site. Aucune ligne ajoutée à la table.");
+				throw new DAO_Exception("Échec de la création de demande de réservation. Aucune ligne ajoutée à la table.");
 			}
 			
 			resultat = preparedStatement.getGeneratedKeys();
@@ -116,6 +117,18 @@ public class DAO_ImplementationReservationTopo implements DAO_ReservationTopo {
 		reservationTopo.setIdProprietaireTopo(resultat.getLong("id_proprietaire_topo"));
 		reservationTopo.setIdDemandeurReservationTopo(resultat.getLong("id_demandeur_reservation_topo"));
 		reservationTopo.setStatutReservationTopo(resultat.getString("statut_reservation_topo"));
+		
+		BN_Topo topoReservationTopo = new BN_Topo();
+				
+		topoReservationTopo.setIdTopo(resultat.getLong("id_topo"));
+		topoReservationTopo.setIdProprietaireTopo(resultat.getLong("id_proprietaire_topo"));
+		topoReservationTopo.setNomTopo(resultat.getString("nom_topo"));
+		topoReservationTopo.setRegionTopo(resultat.getString("region_topo"));
+		topoReservationTopo.setDescriptionTopo(resultat.getString("description_topo"));
+		topoReservationTopo.setDateParutionTopo(resultat.getTimestamp("date_parution_topo"));
+		topoReservationTopo.setDisponibiliteTopo(resultat.getBoolean("disponibilite_topo"));
+		
+		reservationTopo.setTopoReservationTopo(topoReservationTopo);
 		
 		BN_Utilisateur proprietaireTopo = new BN_Utilisateur();
 		
