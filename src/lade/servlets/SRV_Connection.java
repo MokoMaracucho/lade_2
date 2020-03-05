@@ -62,8 +62,8 @@ public class SRV_Connection extends HttpServlet {
 			
 			List<BN_ReservationTopoInnerJoin> listeDemandesReservationTopo = daoReservationTopo.selectionDemandesReservationTopoInnerJoinParIdProprietaire(idProprietaireTopo);
 			
-			request.setAttribute(ATT_LISTE_DEMANDES_RESERVATION_TOPO, listeDemandesReservationTopo);
-			session.setAttribute(ATT_SESSION_UTILISATEUR, utilisateur);
+			session.setAttribute(ATT_LISTE_DEMANDES_RESERVATION_TOPO, 	listeDemandesReservationTopo);
+			session.setAttribute(ATT_SESSION_UTILISATEUR, 				utilisateur);
 		    
 			response.sendRedirect(URL_ACCUEIL);
 		

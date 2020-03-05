@@ -16,29 +16,27 @@
 			<c:import url="include/navbar/jsp_navbar.jsp" ></c:import>
 		</header>
 		
-		<c:if test="${!empty sessionScope.listeDemandesReservationTopo}">
+<%-- 		<c:if test="${!empty requestScope.listeDemandesReservationTopo}"> --%>
 			<div class="div-container">
 				<div class="container">
 					<div class="row">
-		        		<c:forEach var="demandeReservationTopo" items="${ requestScope['listeDemandesReservationTopo'] }">
+		        		<c:forEach var="demandeReservationTopo" items="${ sessionScope['listeDemandesReservationTopo'] }">
 	        				<div class="col-sm-3 form form-expand-lg form-dark bg-dark form-margin-padding form-border m-1 mt-3">
 	        					<h5 class="font-weight-bold text-light">${ demandeReservationTopo.topoReservationTopo.nomTopo }</h5>
 		        				
-		        				<div class="small text-secondary"><strong>Créateur : </strong>${ site.createurSite.prenomUtilisateur } ${ site.createurSite.nomUtilisateur }</div>
-			        				
-		        				<div class="small text-secondary mb-2"><strong>Region : </strong>${ site.regionSite }</div>
+		        				<div class="small text-secondary"><strong>Demandeur : </strong>${ demandeReservationTopo.demandeurReservationTopo.prenomUtilisateur } ${ demandeReservationTopo.demandeurReservationTopo.nomUtilisateur }</div>
 		        				
 		        				<div>
-		        					<a type="button" href="/lade/ListeSecteurs?nomSite=${ site.nomSite }" class="btn btn-success btn-sm text-dark mb-2">Accepter la demande</a>
+		        					<a type="button" href="/lade/" class="btn btn-success btn-sm text-dark mb-2">Accepter la demande</a>
 
-		        					<a type="button" href="/lade/DetailSite?nomSite=${ site.nomSite }" class="btn btn-warning btn-sm text-dark mb-2">Refuser la demande</a>
+		        					<a type="button" href="/lade/" class="btn btn-danger btn-sm text-dark mb-2">Refuser la demande</a>
 	        					</div>
 	        				</div>
 		        		</c:forEach>
 		  			</div>
 			    </div>
 			</div>
-	     </c:if>
+<%-- 	     </c:if> --%>
 		
 		<!-- CDN : JQuery / Popper.js / Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
