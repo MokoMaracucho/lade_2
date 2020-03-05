@@ -16,7 +16,7 @@ import lade.beans.BN_Utilisateur;
 
 public class DAO_ImplementationReservationTopo implements DAO_ReservationTopo {
 
-	private static final String SQL_INSERT_RESERVATION_TOPO = "INSERT INTO tb_reservation_topo (id_topo, id_proprietaire_topo, id_demandeur_reservation_topo, statut_reservation_topo) VALUES (?, ?, ?, ?)";
+	private static final String SQL_INSERT_RESERVATION_TOPO = "INSERT INTO tb_reservation_topo (id_topo_reservation_topo, id_proprietaire_topo, id_demandeur_reservation_topo, statut_reservation_topo) VALUES (?, ?, ?, ?)";
 
 	private static final String SQL_SELECT_RESERVATIONS_TOPO_INNER_JOIN_PAR_ID_PROPRIETAIRE = "";
 	

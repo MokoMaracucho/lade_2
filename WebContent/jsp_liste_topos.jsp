@@ -39,7 +39,7 @@
 	        				
 	        						<c:if test="${!empty sessionScope.sessionUtilisateur}">
 				        				<c:if test="${ topo.disponibiliteTopo }">
-				        					<a type="button" href="/lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Réserver le topo</a>
+				        					<a type="button" href="/lade/DemandeReservationTopo?nomTopo=${ topo.nomTopo }" class="btn btn-success btn-sm text-dark mb-2">Demande de réservation</a>
 				        				</c:if>
        								</c:if>
 		        				</div>

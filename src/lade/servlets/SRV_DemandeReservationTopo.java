@@ -20,13 +20,14 @@ public class SRV_DemandeReservationTopo extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	public static final String VUE_ACCUEIL					= "/jsp_accueil.jsp";
+	public static final String VUE_RESULTAT_DEMANDE_RESERVATION_TOPO			= "/restreint/jsp_resultat_demande_reservation.jsp";
 	
-	public static final String ATT_NOM_TOPO 				= "nomTopo";
-	public static final String ATT_UTILISATEUR				= "utilisateur";
-	public static final String ATT_SESSION_UTILISATEUR		= "sessionUtilisateur";
+	public static final String ATT_NOM_TOPO 									= "nomTopo";
+	public static final String ATT_NOUVELLE_RESERVATION_TOPO					= "nouvelleReservationTopo";
+	public static final String ATT_UTILISATEUR									= "utilisateur";
+	public static final String ATT_SESSION_UTILISATEUR							= "sessionUtilisateur";
 
-	public static final String CONFIGURATION_DAO_FACTORY 	= "daoFactory";
+	public static final String CONFIGURATION_DAO_FACTORY 						= "daoFactory";
 	
 	private DAO_Topo daoTopo;
 	private DAO_ReservationTopo daoReservationTopo;
@@ -49,6 +50,8 @@ public class SRV_DemandeReservationTopo extends HttpServlet {
 		
 		BN_ReservationTopo nouvelleReservationTopo = traitementDemandeReservationTopo.traitementDemandeReservationTopo(request, session);
 		
-		this.getServletContext().getRequestDispatcher(VUE_ACCUEIL).forward(request, response);
+		request.setAttribute(ATT_NOUVELLE_RESERVATION_TOPO, nouvelleReservationTopo);
+		
+		this.getServletContext().getRequestDispatcher(VUE_RESULTAT_DEMANDE_RESERVATION_TOPO).forward(request, response);
 	}
 }
