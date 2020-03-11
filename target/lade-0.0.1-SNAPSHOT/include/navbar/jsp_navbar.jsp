@@ -35,9 +35,9 @@
          
          			<a class="dropdown-item" href="AjoutVoie">Ajout d'une voie</a>
          
-         			<a class="dropdown-item" href="#">Ajout d'une longueur</a>
+         			<a class="dropdown-item" href="AjoutLongueur">Ajout d'une longueur</a>
          
-         			<a class="dropdown-item" href="#">Ajout d'un topo</a>
+         			<a class="dropdown-item" href="AjoutTopo">Ajout d'un topo</a>
        			</div>
       		</li>
 	      
@@ -45,7 +45,7 @@
         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listes </a>
        			
        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         			<a class="dropdown-item" href="#">Liste des utilisateurs</a>
+         			<a class="dropdown-item" href="ListeUtilisateurs">Liste des utilisateurs</a>
          				
          			<a class="dropdown-item" href="#">Liste des membres</a>
          			
@@ -57,11 +57,15 @@
          
          			<a class="dropdown-item" href="ListeVoies">Liste des voies</a>
          
-         			<a class="dropdown-item" href="#">Liste des longueurs</a>
+         			<a class="dropdown-item" href="ListeLongueurs">Liste des longueurs</a>
          
-         			<a class="dropdown-item" href="#">Liste des topos</a>
+         			<a class="dropdown-item" href="ListeTopos">Liste des topos</a>
        			</div>
       		</li>
+    	
+		    <li class="nav-item">
+		        <a class="nav-link" href="/lade/RechercheAvancee">Recherche avancée <span class="sr-only">(current)</span></a>
+		    </li>
     	</ul>
     	
 	    <form class="form-inline my-2 my-lg-0">
