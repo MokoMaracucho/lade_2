@@ -1,15 +1,23 @@
 package lade.beans;
 
+import javax.persistence.Column;
+
 public class BN_VoieInnerJoin {
 
-	private Long				idVoie;
-	private Long				IdCreateurVoie;
-	private Long				IdSecteur;
-	private String 				nomVoie;
-	private Boolean 			equipeVoie;
-	private String 				cotationVoie;
-	private BN_Utilisateur		createurVoie;
-	private BN_Secteur 			secteurVoie;
+	@Column(name="id_voie")
+	private Long idVoie;
+	@Column(name="id_createur_voie")
+	private Long idCreateurVoie;
+	@Column(name="id_secteur_voie")
+	private Long idSecteurVoie;
+	@Column(name="nom_voie")
+	private String nomVoie;
+	@Column(name="equipe_voie")
+	private Boolean	equipeVoie;
+	@Column(name="cotation_voie")
+	private String cotationVoie;
+	private BN_Utilisateur createurVoie;
+	private BN_Secteur secteurVoie;
 	
 	public Long getIdVoie() {
 		return idVoie;
@@ -20,19 +28,19 @@ public class BN_VoieInnerJoin {
 	}
 	
 	public Long getIdCreateurVoie() {
-		return IdCreateurVoie;
+		return idCreateurVoie;
 	}
 	
-	public void setIdCreateurVoie(Long IdCreateurVoie) {
-		this.IdCreateurVoie = IdCreateurVoie;
+	public void setIdCreateurVoie(Long idCreateurVoie) {
+		this.idCreateurVoie = idCreateurVoie;
 	}
 	
 	public Long getIdSecteur() {
-		return IdSecteur;
+		return idSecteurVoie;
 	}
 	
-	public void setIdSecteur(Long IdSecteur) {
-		this.IdSecteur = IdSecteur;
+	public void setIdSecteur(Long idSecteurVoie) {
+		this.idSecteurVoie = idSecteurVoie;
 	}
 	
 	public String getNomVoie() {

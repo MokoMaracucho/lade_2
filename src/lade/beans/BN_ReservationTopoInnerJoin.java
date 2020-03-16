@@ -1,14 +1,22 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_reservation_topo")
 public class BN_ReservationTopoInnerJoin {
 	
+	@Column(name="id_reservation_topo")
 	private Long idReservationTopo;
+	@Column(name="id_topo")
 	private Long idTopo;
+	@Column(name="id_proprietaire_topo")
 	private Long idProprietaireTopo;
+	@Column(name="id_demandeur_reservation_topo")
 	private Long idDemandeurReservationTopo;
+	@Column(name="statut_reservation_topo")
 	private String statutReservationTopo;
 	private BN_Topo topoReservationTopo;
-
 	private BN_Utilisateur proprietaireTopo;
 	private BN_Utilisateur demandeurReservationTopo;
 	

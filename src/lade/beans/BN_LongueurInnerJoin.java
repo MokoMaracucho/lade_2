@@ -1,12 +1,19 @@
 package lade.beans;
 
+import javax.persistence.Column;
+
 public class BN_LongueurInnerJoin {
 
-	private Long				idLongueur;
-	private Long				IdCreateurLongueur;
-	private Long				IdVoie;
-	private String 				nomLongueur;
-	private String 				cotationLongueur;
+	@Column(name="id_longueur")
+	private Long idLongueur;
+	@Column(name="id_createur_longueur")
+	private Long idCreateurLongueur;
+	@Column(name="id_voie_longueur")
+	private Long idVoieLongueur;
+	@Column(name="nom_longueur")
+	private String nomLongueur;
+	@Column(name="cotation_longueur")
+	private String cotationLongueur;
 	private BN_Utilisateur		createurLongueur;
 	private BN_Voie 			VoieLongueur;
 	
@@ -19,19 +26,19 @@ public class BN_LongueurInnerJoin {
 	}
 	
 	public Long getIdCreateurLongueur() {
-		return IdCreateurLongueur;
+		return idCreateurLongueur;
 	}
 	
-	public void setIdCreateurLongueur(Long IdCreateurLongueur) {
-		this.IdCreateurLongueur = IdCreateurLongueur;
+	public void setIdCreateurLongueur(Long idCreateurLongueur) {
+		this.idCreateurLongueur = idCreateurLongueur;
 	}
 	
 	public Long getIdVoie() {
-		return IdVoie;
+		return idVoieLongueur;
 	}
 	
-	public void setIdVoie(Long IdVoie) {
-		this.IdVoie = IdVoie;
+	public void setIdVoie(Long idVoieLongueur) {
+		this.idVoieLongueur = idVoieLongueur;
 	}
 	
 	public String getNomLongueur() {

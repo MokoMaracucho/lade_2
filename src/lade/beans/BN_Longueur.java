@@ -1,12 +1,21 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_longueur")
 public class BN_Longueur {
 
-	private Long			idLongueur;
-	private Long			idCreateurLongueur;
-	private Long			idVoie;
-	private String 			nomLongueur;
-	private String 			cotationLongueur;
+	@Column(name="id_longueur")
+	private Long idLongueur;
+	@Column(name="id_createur_longueur")
+	private Long idCreateurLongueur;
+	@Column(name="id_voie_longueur")
+	private Long idVoieLongeur;
+	@Column(name="nom_longueur")
+	private String nomLongueur;
+	@Column(name="cotation_longueur")
+	private String cotationLongueur;
 	
 	public Long getIdLongueur() {
 		return idLongueur;
@@ -25,11 +34,11 @@ public class BN_Longueur {
 	}
 	
 	public Long getIdVoie() {
-		return idVoie;
+		return idVoieLongeur;
 	}
 	
-	public void setIdVoie(Long idVoie) {
-		this.idVoie = idVoie;
+	public void setIdVoie(Long idVoieLongeur) {
+		this.idVoieLongeur = idVoieLongeur;
 	}
 	
 	public String getNomLongueur() {

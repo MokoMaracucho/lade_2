@@ -1,11 +1,19 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_site")
 public class BN_Site {
 
-	private Long					idSite;
-	private Long					IdCreateurSite;
-	private String 					nomSite;
-	private String 					regionSite;
+	@Column(name="id_site")
+	private Long idSite;
+	@Column(name="id_createur_site")
+	private Long IdCreateurSite;
+	@Column(name="nom_site")
+	private String nomSite;
+	@Column(name="region_site")
+	private String regionSite;
 
 	public Long getIdSite() {
 		return idSite;

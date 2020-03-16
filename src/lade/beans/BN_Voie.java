@@ -1,13 +1,23 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_topo")
 public class BN_Voie {
 
-	private Long			idVoie;
-	private Long			idCreateurVoie;
-	private Long			idSecteur;
-	private String 			nomVoie;
-	private Boolean			equipeVoie;
-	private String 			cotationVoie;
+	@Column(name="id_voie")
+	private Long idVoie;
+	@Column(name="id_createur_voie")
+	private Long idCreateurVoie;
+	@Column(name="id_secteur_voie")
+	private Long idSecteurVoie;
+	@Column(name="nom_voie")
+	private String nomVoie;
+	@Column(name="equipe_voie")
+	private Boolean	equipeVoie;
+	@Column(name="cotation_voie")
+	private String cotationVoie;
 	
 	public Long getIdVoie() {
 		return idVoie;
@@ -26,11 +36,11 @@ public class BN_Voie {
 	}
 	
 	public Long getIdSecteur() {
-		return idSecteur;
+		return idSecteurVoie;
 	}
 	
-	public void setIdSecteur(Long idSecteur) {
-		this.idSecteur = idSecteur;
+	public void setIdSecteur(Long idSecteurVoie) {
+		this.idSecteurVoie = idSecteurVoie;
 	}
 	
 	public String getNomVoie() {

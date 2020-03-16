@@ -1,10 +1,18 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_commentaire")
 public class BN_CommentaireInnerJoin {
-	
+
+	@Column(name="id_commentaire")
 	private Long idCommentaire;
+	@Column(name="id_auteur_commentaire")
 	private Long idAuteurCommentaire;
+	@Column(name="id_site_commentaire")
 	private Long idSiteCommentaire;
+	@Column(name="commentaire")
 	private String commentaire;
 	private BN_Utilisateur auteurCommentaire;
 	private BN_Site siteCommentaire;

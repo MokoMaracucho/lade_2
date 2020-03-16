@@ -1,13 +1,21 @@
 package lade.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_secteur")
 public class BN_SecteurInnerJoin {
 
-	private Long 			idSecteur;
-	private Long 			idCreateurSecteur;
-	private Long 			idSite;
-	private String 			nomSecteur;
-	private BN_Utilisateur 	createurSecteur;
-	private BN_Site 		site;
+	@Column(name="id_secteur")
+	private Long idSecteur;
+	@Column(name="id_createur_secteur")
+	private Long idCreateurSecteur;
+	@Column(name="id_site_secteur")
+	private Long idSiteSecteur;
+	@Column(name="nom_secteur")
+	private String nomSecteur;
+	private BN_Utilisateur createurSecteur;
+	private BN_Site site;
 	
 	public Long getIdSecteur() {
 		return idSecteur;
@@ -26,11 +34,11 @@ public class BN_SecteurInnerJoin {
 	}
 	
 	public Long getIdSite() {
-		return idSite;
+		return idSiteSecteur;
 	}
 	
-	public void setIdSite(Long idSite) {
-		this.idSite = idSite;
+	public void setIdSite(Long idSiteSecteur) {
+		this.idSiteSecteur = idSiteSecteur;
 	}
 	
 	public String getNomSecteur() {

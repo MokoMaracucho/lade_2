@@ -2,15 +2,26 @@ package lade.beans;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_utilisateur")
 public class BN_Utilisateur {
 
-	private Long		idUtilisateur;
-	private String 		prenomUtilisateur;
-	private String 		nomUtilisateur;
-	private String 		emailUtilisateur;
-	private String 		motDePasseUtilisateur;
-	private String 		numeroMembreUtilisateur;
-	private Timestamp 	dateInscriptionUtilisateur;
+	@Column(name="id_utilisateur")
+	private Long idUtilisateur;
+	@Column(name="prenom_utilisateur")
+	private String prenomUtilisateur;
+	@Column(name="nom_utilisateur")
+	private String nomUtilisateur;
+	@Column(name="email_utilisateur")
+	private String emailUtilisateur;
+	@Column(name="mot_de_passe_utilisateur")
+	private String motDePasseUtilisateur;
+	@Column(name="numero_membre_utilisateur")
+	private String numeroMembreUtilisateur;
+	@Column(name="date_inscription_utilisateur")
+	private Timestamp dateInscriptionUtilisateur;
 	
 	public Long getIdUtilisateur() {
 		return idUtilisateur;

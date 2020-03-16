@@ -2,14 +2,25 @@ package lade.beans;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity(name="tb_topo")
 public class BN_Topo {
-	
+
+	@Column(name="id_topo")
 	private Long idTopo;
+	@Column(name="id_proprietaire_topo")
 	private Long idProprietaireTopo;
+	@Column(name="nom_topo")
 	private String nomTopo;
+	@Column(name="region_topo")
 	private String regionTopo;
+	@Column(name="description_topo")
 	private String descriptionTopo;
+	@Column(name="date_parution_topo")
 	private Timestamp dateParutionTopo;
+	@Column(name="disponibilite_topo")
 	private Boolean disponibiliteTopo;
 
 	public Long getIdTopo() {
