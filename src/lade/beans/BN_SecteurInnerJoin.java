@@ -2,10 +2,15 @@ package lade.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name="tb_secteur")
 public class BN_SecteurInnerJoin {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_secteur")
 	private Long idSecteur;
 	@Column(name="id_createur_secteur")

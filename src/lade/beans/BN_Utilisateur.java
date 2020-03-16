@@ -4,10 +4,15 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity(name="tb_utilisateur")
 public class BN_Utilisateur {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_utilisateur")
 	private Long idUtilisateur;
 	@Column(name="prenom_utilisateur")

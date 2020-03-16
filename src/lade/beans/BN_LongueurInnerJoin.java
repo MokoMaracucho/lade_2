@@ -1,9 +1,14 @@
 package lade.beans;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 public class BN_LongueurInnerJoin {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_longueur")
 	private Long idLongueur;
 	@Column(name="id_createur_longueur")
